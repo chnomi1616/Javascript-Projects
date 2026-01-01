@@ -1,0 +1,109 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Click Circle App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            position: relative; /* to make absolute positioning work */
+            height: 100vh;
+            overflow: hidden;
+        }
+        h2 {
+            margin-bottom: 30px;
+        }
+        .circle {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%); /* center circle on click */
+        }
+    </style>
+</head>
+<body>
+
+<h2>Click anywhere to create a circle</h2>
+
+<script>
+    // Listen for clicks on the body
+    document.body.addEventListener('click', function(event) {
+        // Create a new div element for the circle
+        let circle = document.createElement('div');
+        circle.classList.add('circle');
+
+        // Set the circle's position to where the click happened
+        circle.style.left = event.clientX + 'px';
+        circle.style.top = event.clientY + 'px';
+
+        // Add the circle to the page
+        document.body.appendChild(circle);
+    });
+</script>
+
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Click Time Detector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        img {
+            cursor: pointer;
+        }
+        #timeDisplay {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Click anywhere or on the image</h2>
+
+<!-- Image to click -->
+<img src="https://via.placeholder.com/150" id="myImage" alt="Click me">
+
+<!-- Paragraph to display time -->
+<p id="timeDisplay">Click somewhere to see the time!</p>
+
+<script>
+    // Function to display current time
+    function showClickTime(event) {
+        let now = new Date();
+        let hours = now.getHours();
+        let minutes = now.getMinutes();
+        let seconds = now.getSeconds();
+        
+        // Add leading zeros for single digits
+        if (hours < 10) hours = "0" + hours;
+        if (minutes < 10) minutes = "0" + minutes;
+        if (seconds < 10) seconds = "0" + seconds;
+
+        document.getElementById('timeDisplay').innerText =
+            "You clicked at: " + hours + ":" + minutes + ":" + seconds;
+    }
+
+    // Listen for clicks anywhere on the body
+    document.body.addEventListener('click', showClickTime);
+
+    // Listen for clicks on the image
+    document.getElementById('myImage').addEventListener('click', function(event){
+        event.stopPropagation(); // Prevent body click from triggering twice
+        showClickTime(event);
+    });
+</script>
+
+</body>
+</html>

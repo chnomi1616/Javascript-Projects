@@ -1,0 +1,86 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Background Color Changer</title>
+  <style>
+    body {
+      text-align: center;
+      padding: 50px;
+      transition: background-color 0.3s;
+    }
+    .button {
+      padding: 10px 20px;
+      margin: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Click a button to change background color</h1>
+
+  <button class="button" id="grey">Grey</button>
+  <button class="button" id="lightblue">lightblue</button>
+  <button class="button" id="blue">Blue</button>
+  <button class="button" id="yellow">Yellow</button>
+
+  <script>
+    const buttons = document.querySelectorAll('.button');
+    const body = document.querySelector('body');
+
+  buttons.forEach(button => {
+      button.addEventListener('click', e => {
+        const color = e.target.id; // get the button’s id
+        body.style.backgroundColor = color; // change background
+      });
+    });
+  </script>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Clock</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+    #clock {
+      font-size: 60px;
+      font-weight: bold;
+      color: #333;
+      background: #fff;
+      padding: 20px 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <div id="clock">00:00:00</div>
+
+  <script>
+    const clock = document.getElementById('clock');
+    // const clock = document.querySelector('#clock')
+
+    setInterval(function () {
+      let date = new Date();
+      clock.innerHTML = date.toLocaleTimeString();
+    }, 1000);
+  </script>
+
+</body>
+</html>

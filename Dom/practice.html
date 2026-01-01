@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Modern Bulb Design</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    /* Bulb */
+    .bulb {
+      width: 160px;
+      margin: auto;
+    }
+
+    .bulb-glass {
+      width: 160px;
+      height: 200px;
+      background: #444;
+      border-radius: 50% 50% 45% 45%;
+      transition: 0.3s;
+    }
+
+    .bulb-neck {
+      width: 70px;
+      height: 35px;
+      background: #ccc;
+      margin: auto;
+      border-radius: 0 0 12px 12px;
+    }
+
+    .bulb-base {
+      width: 90px;
+      height: 55px;
+      background: #777;
+      margin: auto;
+      border-radius: 0 0 15px 15px;
+    }
+
+    /* Button */
+    .switch-btn {
+      margin-top: 25px;
+      padding: 12px 30px;
+      font-size: 16px;
+      border: none;
+      border-radius: 25px;
+      background: #ffeb3b;
+      color: #000;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .switch-btn:hover {
+      background: #fff176;
+    }
+  </style>
+
+</head>
+<body>
+
+  <div class="container">
+    
+    <div class="bulb">
+      <div class="bulb-glass"></div>
+      <div class="bulb-neck"></div>
+      <div class="bulb-base"></div>
+    </div>
+
+    <button class="switch-btn">ON / OFF</button>
+
+  </div>
+
+  <script>
+    const bulbGlass = document.querySelector(".bulb-glass");
+    const switchBtn = document.querySelector(".switch-btn");
+
+    switchBtn.addEventListener("click",function() {
+      bulbGlass.classList.toggle("active");
+
+      if (bulbGlass.classList.contains("active")) {
+        bulbGlass.style.background = "yellow";
+        bulbGlass.style.boxShadow = "0 0 20px 10px yellow";
+      } else {
+        bulbGlass.style.background = "#444";
+        bulbGlass.style.boxShadow = "none";
+      }
+    });
+  </script>
+
+</body>
+</html>
